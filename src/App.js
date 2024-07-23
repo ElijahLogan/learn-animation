@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
+import { useSpring, animated } from 'react-spring';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="logo" />
-          <button className="menu-button">Menu</button>
-        </header>
-      </div>
-    );
+const App = () => {
+// create object of animation'
+const fade  = useSpring({
+  from:{
+    opacity:0
+  },
+  to:{
+    opacity:1
   }
+});
+
+console.log(fade)
+
+  return (
+    <animated.div className="App" style={fade}>
+      <header className="App-header">
+        <img src={logo} className="logo" />
+        <button className="menu-button">Menu</button>
+      </header>
+    </animated.div>
+  );
 }
+
+
+
 
 export default App;

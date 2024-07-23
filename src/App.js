@@ -7,6 +7,7 @@ import Nav from './nav';
 import Checkout from './checkout';
 const App = () => {
   const [isToggled, setToggle] = useState(false)
+  // params: boolena, keys, object: from/enter/leave
   const transition = useTransition(isToggled,null,{
     from: {opacity:0},
     enter: {opacity:1},
@@ -16,8 +17,14 @@ const App = () => {
 
   return (
     <div>
-      {transition.map(({item, key,props}) => (item && <animated.h1 key ={key} style={props}> Hello</animated.h1>))}
-      <animated.h1> Hello</animated.h1>
+
+      {transition.map(
+            ({item, key,props}) => 
+            (item &&
+            <animated.h1 key ={key} style={props}> 
+            Hello</animated.h1>))}
+
+
       <button onClick={() => setToggle(!isToggled)}>Toggle</button>
     </div>
   );

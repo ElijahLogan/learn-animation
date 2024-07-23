@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Toggle from './toggle';
 import Nav from './nav';
+import Checkout from './checkout';
 const App = () => {
   const [isToggled, setToggle] = useState(false)
   const [isNav, setNav] = useState(false)
@@ -18,7 +19,7 @@ const fade  = useSpring({
 });
 
 let navAnimate = useSpring({
- transform: isNav ? `translate3d(0, 0,0) scale(1)  `:`translate3d(-100%, 0,0) scale(0.6) `
+ transform: isNav ? `translate3d(0, 0,0)`:`translate3d(100%, 0,0)`
 })
 console.log(fade)
 
@@ -28,10 +29,12 @@ console.log(fade)
         <img src={logo} className="logo" />
         <button className="menu-button" onClick = {() => setNav(!isNav)}>change nav</button>
 
-      <Nav style={navAnimate}/>
+      {/* <Nav style={navAnimate}/> */}
       </header>
       <main>
+        
         <Toggle/>
+        <Checkout isOpen={isNav}/>
       </main>
     </animated.div>
   );

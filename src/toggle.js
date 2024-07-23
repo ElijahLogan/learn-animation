@@ -8,7 +8,7 @@ const Toggle = () => {
     //from: is initial state
     //no from property it starts at the to 
     const fade = useSpring({
-        opacity: isToggled ? 0 : 1 
+        opacity: isToggled ? 0 : 1,
     })
 
    

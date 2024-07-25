@@ -5,6 +5,7 @@ import './App.css';
 import Toggle from './toggle';
 import Routes from './routes';
 import Nav from './nav';
+import { useLocation } from 'react-router-dom';
 const App = () => {
   const [isToggled, setToggle] = useState(false)
   const [isNav, setNav] = useState(false)

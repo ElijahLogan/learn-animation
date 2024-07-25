@@ -1,36 +1,42 @@
 import React, {  useState, Component } from 'react';
-import { useSpring, animated, useTransition} from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import logo from './logo.svg';
 import './App.css';
 import Toggle from './toggle';
+import Routes from './routes';
 import Nav from './nav';
-import Checkout from './checkout';
 const App = () => {
-  const [items, setItems] = useState([{letter:'6',key:1},{letter:'7',key:2}, {letter:'8',key:3}])
-  // params: boolena, keys, object: from/enter/leave
-  const transition = useTransition(items,item => item.key,{
-    // position absolute: relative container needed to manage it
-    from: {opacity:0},
-    enter: {opacity:1},
-    leave: {opacity:0}
-  }
-  )
+  const [isToggled, setToggle] = useState(false)
+  const [isNav, setNav] = useState(false)
+// create object of animation'
+const fade  = useSpring({
+  from:{
+    opacity:0
+  },
+
+    opacity:1
+
+});
+
+let navAnimate = useSpring({
+ transform: isNav ? `translate3d(0, 0,0) scale(1)  `:`translate3d(-100%, 0,0) scale(0.6) `
+})
+console.log(fade)
 
   return (
-    <div >
+    <animated.div className="App" style={fade}>
+      <header className="App-header">
+        <img src={logo} className="logo" />
+        <button className="menu-button" onClick = {() => setNav(!isNav)}>change nav</button>
 
-      {transition.map(
-            ({item, key,props}) => 
-           
-             <animated.h1 key ={key} style={props}>
-                {items.letter}
-              </animated.h1>
-            
-            )}
-
-
-      <button onClick={() => setItems({"letter":6, key:1})}>Toggle</button>
-    </div>
+      <Nav style={navAnimate}/>
+      </header>
+      <main>
+        <Routes/>
+        <Toggle/>
+      </main>
+      
+    </animated.div>
   );
 }
 
@@ -38,8 +44,6 @@ const App = () => {
 
 
 export default App;
-
-
 
 
 // const App = () => {

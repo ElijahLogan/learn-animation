@@ -43,9 +43,8 @@ const Routes = () => {
 
 const Main =  () => {
   const location_path = useRouter()
-  const pathname = location_path.pathname
-  console.log('Location:', location_path)
 
+  
   const transitions = useTransition(location_path, location=> location.key,{
     from: {opacity:0, position:`absolute`, width:'100%'},
     enter: {opacity:1},

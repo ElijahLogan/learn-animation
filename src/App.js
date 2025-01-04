@@ -5,6 +5,7 @@ import './App.css';
 import Toggle from './toggle';
 import Nav from './nav';
 import Checkout from './checkout';
+
 const App = () => {
   const [isToggled, setToggle] = useState(false)
   const [isNav, setNav] = useState(false)

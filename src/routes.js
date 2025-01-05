@@ -37,7 +37,7 @@ const Routes = () => {
         <Link to="/contact">Contact</Link>
 
       </ul>
-<Main/>
+< Main/>
 </BrowserRouter>
 )}
 
@@ -53,7 +53,7 @@ const Main =  () => {
     // Transition is just renaming props since props is so commonly used
     return transitions.map( ({item,props:transition,key}) => (
       <animated.div key={key} style={transition}>
-        <Switch >
+        <Switch location={item} >
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />

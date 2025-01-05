@@ -34,7 +34,7 @@ console.log(fade)
       </header>
       <main>
         <Routes/>
-        <Toggle/>
+        {/* <Toggle/> */}
       </main>
       
     </animated.div>

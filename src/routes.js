@@ -48,7 +48,7 @@ const Main =  () => {
   const transitions = useTransition(location_path, location=> location.key,{
     from: {opacity:0, position:`absolute`, width:'100%'},
     enter: {opacity:1},
-    leave: {opacity:0}
+    leave: {opacity:0},  config: { duration: 800 }
   })
     // Transition is just renaming props since props is so commonly used
     return transitions.map( ({item,props:transition,key}) => (
